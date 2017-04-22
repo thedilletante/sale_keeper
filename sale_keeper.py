@@ -1,9 +1,10 @@
 from flask import Flask, request
+from os import path
 import telepot
 import urllib3
 import json
 
-with open("config.json") as config:
+with open("{}/config.json".format(path.dirname(path.realpath(__file__)))) as config:
     jconf = json.load(config)
     if not "secret" in jconf or not "token" in jconf or not "host" in jconf:
         print("There is no valid configuration")
